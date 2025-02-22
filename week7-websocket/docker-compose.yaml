@@ -1,0 +1,28 @@
+# this example for "todos-app"
+# docker compose up -d
+# docker compose down
+
+networks:
+  websocket-network:
+    name: websocket-network
+
+services:
+  websocket-backend:
+    image: websocket-backend
+    container_name: websocket-backend
+    restart: always
+    ports:
+      - 3003:3003
+    networks:
+      - websocket-network
+    volumes:
+      - ./websocket-data:/usr/src/app/data
+
+  websocket-frontend:
+    image: websocket-frontend
+    container_name: websocket-frontend
+    restart: always
+    ports:
+      - 80:80
+    networks:
+      - websocket-network

@@ -1,0 +1,5 @@
+@import "tailwindcss";
+
+.btn {
+    @apply rounded-md p-3;
+}
